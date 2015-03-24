@@ -10,7 +10,16 @@ namespace Vaccines_and_Travel_Clinic.DAL
 {
     public class ClinicContext : DbContext
     {
-        public ClinicContext() : base("ClinicContext") { }
+        //static ClinicContext()
+        //{
+        //    Database.SetInitializer(new CreateDatabaseIfNotExists<ClinicContext>());
+        //}
+
+        public ClinicContext() //(string securityPartition = null, string asRole = null) 
+            : base("ClinicContext") 
+        {
+            //Crypteron.CipherDb.Session.Open(this, securityPartition, asRole);
+        }
 
         public DbSet<Supplier> Suppliers { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -20,6 +29,8 @@ namespace Vaccines_and_Travel_Clinic.DAL
         public DbSet<Sale> Sales { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<Customer> Customers { get; set; }
+
+        public DbSet<Appointment> Appointment { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

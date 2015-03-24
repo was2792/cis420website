@@ -54,7 +54,7 @@ namespace Vaccines_and_Travel_Clinic.DAL
                 new OrderLine{ OrderID = 2, ItemID = 2, Quantity = 22, Price = 200.00M },
                 new OrderLine{ OrderID = 3, ItemID = 3, Quantity = 33, Price = 300.00M },
                 new OrderLine{ OrderID = 4, ItemID = 4, Quantity = 44, Price = 400.00M },
-                new OrderLine{ OrderID = 5,ItemID = 5, Quantity = 55, Price = 500.00M },
+                new OrderLine{ OrderID = 5, ItemID = 5, Quantity = 55, Price = 500.00M },
             };
 
             orderline.ForEach(ol => context.OrderLines.Add(ol));
@@ -96,6 +96,7 @@ namespace Vaccines_and_Travel_Clinic.DAL
             sale.ForEach(s => context.Sales.Add(s));
             context.SaveChanges();
 
+
             var saleline = new List<SaleLine>
             {
                 new SaleLine{ SaleID = 1, ItemID = 1, Quantity = 1, Price = 10.00M },
@@ -106,6 +107,14 @@ namespace Vaccines_and_Travel_Clinic.DAL
             };
 
             saleline.ForEach(sl => context.SaleLines.Add(sl));
+            context.SaveChanges();
+
+            var appointment = new List<Appointment>
+            {
+                new Appointment {AppointmentId = 1, Email = "maseba01@louisville.edu", DateTime = DateTime.Now, Note = "Test" }
+            };
+
+            appointment.ForEach(s => context.Appointment.Add(s));
             context.SaveChanges();
         }
     }

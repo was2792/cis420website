@@ -1,5 +1,6 @@
 ﻿using System.Web.Mvc;
 
+
 namespace IdentitySample.Controllers
 {
     public class HomeController : Controller
@@ -58,5 +59,17 @@ namespace IdentitySample.Controllers
 
             return View();
         }
+
+        public ActionResult Repository()
+        {
+            ViewBag.Message = "Your repository page.";
+
+            return View();
+        }
+
+       
+        
+
+
     }
 }
